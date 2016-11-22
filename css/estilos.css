@@ -1,0 +1,54 @@
+body{
+    background-image: url("../img/balon-oro.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.formulario{
+    width: 700px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: auto;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    text-align: center;
+}
+h1{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: #707070;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.3em;
+}
+form{
+    margin: auto;
+    margin-top: 20px;
+    width: 400px;
+    background-color: #919191;
+    font-size: 1.2em;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+    -ms-progress-appearance: textfield;
+    -webkit-appearance: textfield;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+#griezmann{
+    margin-bottom: 20px;
+}
