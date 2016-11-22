@@ -47,11 +47,29 @@
         <h1>Resultados encuesta de fútbol</h1>
         <form action="resultado.php" method="get">
             <label for="messi" id="messi">Messi</label>
-            <input type="number" id="messi" name="messi" value="<?= $_GET["messi"]?>">%<br>
+            <input type="number" id="messi" name="messi" value="<?= $_GET["messi"]?>" <?php
+            if (isset($error)){
+                if ($error&1){
+                    echo "style=\"background-color:red\"";
+                }
+            }
+            ?>>%<br>
             <label for="cristiano" id="cristiano">Cristiano Ronaldo</label>
-            <input type="number" id="cristiano" name="cristiano" value="<?= $_GET["cristiano"]?>">%<br>
+            <input type="number" id="cristiano" name="cristiano" value="<?= $_GET["cristiano"]?>"<?php
+            if (isset($error)){
+                if ($error&2){
+                    echo "style=\"background-color:red\"";
+                }
+            }
+            ?>>%<br>
             <label for="griezmann" id="griezmann">Griezmann</label>
-            <input type="number" id="griezmann" name="griezmann" value="<?= $_GET["griezmann"]?>">%<br>
+            <input type="number" id="griezmann" name="griezmann" value="<?= $_GET["griezmann"]?>"<?php
+            if (isset($error)){
+                if ($error&4){
+                    echo "style=\"background-color:red\"";
+                }
+            }
+            ?>>%<br>
             <button>Enviar</button>
         </form>
     </div>

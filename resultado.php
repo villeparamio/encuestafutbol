@@ -59,7 +59,7 @@
         header("location: index.php?error=$error&messi=$messi&cristiano=$cristiano&griezmann=$griezmann");
     }
     ?>
-    <a href="index.php">Volver</a>
+    <a href="index.php?<?="error=$error&messi=$messi&cristiano=$cristiano&griezmann=$griezmann"?>">Volver</a>
 </div>
 </body>
 </html>
