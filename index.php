@@ -9,15 +9,49 @@
     <title>FIFA, Balón de oro</title>
 </head>
 <body>
+    <?php
+
+        if (isset($_GET["messi"]) && isset($_GET["cristiano"]) && isset($_GET["griezmann"])) {
+            $messi=$_GET["messi"];
+            $cristiano=$_GET["cristiano"];
+            $griezmann=$_GET["griezmann"];
+        }if (isset($_GET["error"])){
+        $error=$_GET["error"];
+
+        if ($error&8) {
+            echo("<h2 class='errores'>El resultado de los porcentajes es superior al 100%</h2>");
+            if ($error & 1) {
+                echo("<h2 class='errores'>El rango de Messi no va de 0 a 100</h2>");
+            }
+            if ($error & 2) {
+                echo("<h2 class='errores'>El rango de Cristiano no va de 0 a 100</h2>");
+            }
+            if ($error & 4) {
+                echo("<h2 class='errores'>El rango de Griezmann no va de 0 a 100</h2>");
+            }
+        }
+        if ($error&16){
+            echo("<h2 class='errores'>El resultado de los porcentajes es inferior al 100%</h2>");
+            if ($error&1){
+                echo("<h2 class='errores'>El rango de Messi no va de 0 a 100</h2>");
+            }
+            if ($error&2){
+                echo("<h2 class='errores'>El rango de Cristiano no va de 0 a 100</h2>");
+            }
+            if ($error&4){
+                echo("<h2 class='errores'>El rango de Griezmann no va de 0 a 100</h2>");
+            }}
+        }
+    ?>
     <div class="formulario">
         <h1>Resultados encuesta de fútbol</h1>
         <form action="resultado.php" method="get">
             <label for="messi" id="messi">Messi</label>
-            <input type="number" id="messi" name="messi" min="0" max="100">%<br>
+            <input type="number" id="messi" name="messi" value="<?= $_GET["messi"]?>">%<br>
             <label for="cristiano" id="cristiano">Cristiano Ronaldo</label>
-            <input type="number" id="cristiano" name="cristiano" min="0" max="100">%<br>
+            <input type="number" id="cristiano" name="cristiano" value="<?= $_GET["cristiano"]?>">%<br>
             <label for="griezmann" id="griezmann">Griezmann</label>
-            <input type="number" id="griezmann" name="griezmann" min="0" max="100">%<br>
+            <input type="number" id="griezmann" name="griezmann" value="<?= $_GET["griezmann"]?>">%<br>
             <button>Enviar</button>
         </form>
     </div>

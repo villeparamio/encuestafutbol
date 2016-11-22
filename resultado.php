@@ -16,54 +16,50 @@
     $messi=$_GET["messi"];
     $cristiano=$_GET["cristiano"];
     $griezmann=$_GET["griezmann"];
-    $error;
+    $error=0;
     if ($messi+$cristiano+$griezmann==100){
-        echo "<p>Messi ";
+        echo "<p style='color: red'>Messi ";
         for ($i=0;$i<=$messi;$i++){
             echo "*";
         }
         echo "</p><br>";
-        echo "<p>Cristiano Ronaldo ";
+        echo "<p style='color: white'>Cristiano Ronaldo ";
         for ($i=0;$i<=$cristiano;$i++){
             echo "*";
         }
         echo "</p><br>";
-        echo "<p>Griezmann ";
+        echo "<p style='color: blue'>Griezmann ";
         for ($i=0;$i<=$griezmann;$i++){
             echo "*";
         }
         echo "</p><br>";
     }elseif($messi+$cristiano+$griezmann>100){
-        if ($messi<0 and $messi>0){
+        if ($messi<0 or $messi>100){
             $error=$error+1;
         }
-        if ($cristiano<0 and $cristiano>0){
+        if ($cristiano<0 or $cristiano>100){
             $error=$error+2;
         }
-        if ($griezmann<0 and $griezmann>0){
+        if ($griezmann<0 or $griezmann>100){
             $error=$error+4;
         }
         $error=$error+8;
-        header("location: index.php?error=$error");
+        header("location: index.php?error=$error&messi=$messi&cristiano=$cristiano&griezmann=$griezmann");
     }elseif($messi+$cristiano+$griezmann<100){
-        if ($messi<0 and $messi>0){
+        if ($messi<0 or $messi>100){
             $error=$error+1;
         }
-        if ($cristiano<0 and $cristiano>0){
+        if ($cristiano<0 or $cristiano>100){
             $error=$error+2;
         }
-        if ($griezmann<0 and $griezmann>0){
+        if ($griezmann<0 or $griezmann>100){
             $error=$error+4;
         }
         $error=$error+16;
-        header("location: index.php?error=$error");
+        header("location: index.php?error=$error&messi=$messi&cristiano=$cristiano&griezmann=$griezmann");
     }
     ?>
+    <a href="index.php">Volver</a>
 </div>
 </body>
 </html>
-
-/*
-
-header('location:index.php?error=1');
-*/
