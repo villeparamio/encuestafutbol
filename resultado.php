@@ -11,26 +11,59 @@
 <body>
 <div class="formulario">
     <h1>Resultados encuesta de fútbol</h1>
+
     <?php
     $messi=$_GET["messi"];
     $cristiano=$_GET["cristiano"];
     $griezmann=$_GET["griezmann"];
-    echo "<p>Messi ";
-    for ($i=0;$i<=$messi;$i++){
-        echo "*";
-    }
-    echo "</p><br>";
-    echo "<p>Cristiano Ronaldo ";
+    $error;
+    if ($messi+$cristiano+$griezmann==100){
+        echo "<p>Messi ";
+        for ($i=0;$i<=$messi;$i++){
+            echo "*";
+        }
+        echo "</p><br>";
+        echo "<p>Cristiano Ronaldo ";
         for ($i=0;$i<=$cristiano;$i++){
-        echo "*";
+            echo "*";
         }
         echo "</p><br>";
-    echo "<p>Griezmann ";
+        echo "<p>Griezmann ";
         for ($i=0;$i<=$griezmann;$i++){
-        echo "*";
+            echo "*";
         }
         echo "</p><br>";
+    }elseif($messi+$cristiano+$griezmann>100){
+        if ($messi<0 and $messi>0){
+            $error=$error+1;
+        }
+        if ($cristiano<0 and $cristiano>0){
+            $error=$error+2;
+        }
+        if ($griezmann<0 and $griezmann>0){
+            $error=$error+4;
+        }
+        $error=$error+8;
+        header("location: index.php?error=$error");
+    }elseif($messi+$cristiano+$griezmann<100){
+        if ($messi<0 and $messi>0){
+            $error=$error+1;
+        }
+        if ($cristiano<0 and $cristiano>0){
+            $error=$error+2;
+        }
+        if ($griezmann<0 and $griezmann>0){
+            $error=$error+4;
+        }
+        $error=$error+16;
+        header("location: index.php?error=$error");
+    }
     ?>
 </div>
 </body>
 </html>
+
+/*
+
+header('location:index.php?error=1');
+*/

@@ -36,12 +36,10 @@ form{
     margin: auto;
     margin-top: 20px;
     width: 400px;
-    background-color: #919191;
     font-size: 1.2em;
 }
 input[type=number] {
     -moz-appearance:textfield;
-    -ms-progress-appearance: textfield;
     -webkit-appearance: textfield;
     background-color: rgba(0,0,0,0);
     color: white;
